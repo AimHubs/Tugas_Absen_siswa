@@ -1,0 +1,82 @@
+RewriteEngine On
+
+RewriteCond %{HTTP_HOST} ^localhost/Tugas_Absen_siswa/
+RewriteRule (.*) http://localhost/Tugas_Absen_siswa/$1 [R=301,L]
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.php\ HTTP/
+RewriteRule ^index\.php$ http://localhost/Tugas_Absen_siswa [R=301,L]
+
+IndexIgnore *.sql
+
+RewriteRule ^profile/?$ editprofile.php
+
+RewriteRule ^admin/guru/?$ admin/tableguru.php
+
+RewriteRule ^admin/guru/add/?$ admin/tambahguru.php
+
+RewriteRule ^admin/guru/edit/([0-9]+) admin/editguru.php?edit=$1
+
+RewriteRule ^admin/guru/hapus/([0-9]+) admin/tablehapusguru.php?hapus=$1
+
+RewriteRule ^admin/siswa/?$ admin/tablesiswa.php
+
+RewriteRule ^admin/siswa/add/?$ admin/tambahsiswa.php
+
+RewriteRule ^admin/siswa/edit/([0-9]+) admin/editsiswa.php?edit=$1
+
+RewriteRule ^admin/siswa/hapus/([0-9]+) admin/tablehapussiswa.php?hapus=$1
+
+RewriteRule ^admin/account/?$ admin/tableaccount.php
+
+RewriteRule ^admin/account/add/?$ admin/tambahaccount.php
+
+RewriteRule ^admin/account/edit/([0-9]+) admin/editaccount.php?edit=$1
+
+RewriteRule ^admin/account/hapus/([0-9]+) admin/tablehapusaccount.php?hapus=$1
+
+RewriteRule ^admin/admin/?$ admin/tableadmin.php
+
+RewriteRule ^admin/admin/add/?$ admin/tambahadmin.php
+
+RewriteRule ^admin/admin/edit/([0-9]+) admin/editadmin.php?edit=$1
+
+RewriteRule ^admin/admin/hapus/([0-9]+) admin/tablehapusadmin.php?hapus=$1
+
+RewriteRule ^admin/kelas/?$ admin/tablekelas.php
+
+RewriteRule ^admin/kelas/add/?$ admin/tambahkelas.php
+
+RewriteRule ^admin/kelas/edit/([0-9]+) admin/editkelas.php?edit=$1
+
+RewriteRule ^admin/kelas/hapus/([0-9]+) admin/tablehapuskelas.php?hapus=$1
+
+RewriteRule ^admin/wali/?$ admin/tablewali.php
+
+RewriteRule ^admin/wali/add/?$ admin/tambahwali.php
+
+RewriteRule ^admin/wali/edit/([0-9]+) admin/editwali.php?edit=$1
+
+RewriteRule ^admin/wali/hapus/([0-9]+) admin/tablehapuswali.php?hapus=$1
+
+RewriteRule ^admin/setting/?$ admin/setting.php
+
+RewriteRule ^admin/settinglaporan/?$ admin/settinglaporan.php
+
+RewriteRule ^petugas_piket/siswa/?$ petugas_piket/tablesiswa.php
+
+RewriteRule ^petugas_piket/guru/?$ petugas_piket/tableguru.php
+
+RewriteRule ^kesiswaan/laporan/?$ kesiswaan/laporan.php
+
+RewriteRule ^koordinator/laporanabsen/?$ koordinator/laporan.php
+
+RewriteRule ^wali_kelas/laporan/?$ wali_kelas/laporan.php
+
+RewriteRule ^wali_kelas/siswa/?$ wali_kelas/tablesiswa.php
+
+RewriteRule ^wali_kelas/siswa/edit/([0-9]+) wali_kelas/editsiswa.php?edit=$1
+
+RewriteRule ^siswa/siswa/?$ siswa/tablesiswa.php
+
+RewriteRule ^siswa/absen/?$ siswa/absensiswa.php
+
+ErrorDocument 404 http://localhost/Tugas_Absen_siswa/404.php
